@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EBike</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+ 	<script  src="js/jquery.js"></script>
+ 	<script src="js/bootstrap.min.js"></script>
+	<!--  -->
+
+	<script>
+	var stateObject = {
+	"India": { "Delhi": ["new Delhi", "North Delhi"],
+	"Kerala": ["Thiruvananthapuram", "Palakkad"],
+	"Goa": ["North Goa", "South Goa"],
+	},
+	"Australia": {
+	"South Australia": ["Dunstan", "Mitchell"],
+	"Victoria": ["Altona", "Euroa"]
+	}, "Canada": {
+	"Alberta": ["Acadia", "Bighorn"],
+	"Columbia": ["Washington", ""]
+	},
+	}
+	window.onload = function () {
+	var countySel = document.getElementById("countySel"),
+	stateSel = document.getElementById("stateSel"),
+	districtSel = document.getElementById("districtSel");
+	for (var country in stateObject) {
+	countySel.options[countySel.options.length] = new Option(country, country);
+	}
+	countySel.onchange = function () {
+	stateSel.length = 1; // remove all options bar first
+	districtSel.length = 1; // remove all options bar first
+	if (this.selectedIndex < 1) return; // done
+	for (var state in stateObject[this.value]) {
+	stateSel.options[stateSel.options.length] = new Option(state, state);
+	}
+	}
+	countySel.onchange(); // reset in case page is reloaded
+	stateSel.onchange = function () {
+	districtSel.length = 1; // remove all options bar first
+	if (this.selectedIndex < 1) return; // done
+	var district = stateObject[countySel.value][this.value];
+	for (var i = 0; i < district.length; i++) {
+	districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+	}
+	}
+	}
+	</script>
+
+
+
+  </head>
+
+<body>
+
+	<div class="main">
+	<nav class="navbar navbar-lights  bg-dark fixed-top" >
+
+
+ 	<a class="navbar-brand" href="#">
+    <img src="images/logo.png" width="60" height="40" class="d-inline-block align-top" alt="">
+    <b> EBike </b>
+  </a>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="services1.html">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="gallary.html">Gallary</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="bookride.html">Book Ride </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="blog2.html">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contactus.html">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+</nav>
+</div>     <br><br>
+
+	<div class="image">
+
+
+<div class="container_book">
+
+
+<div class="Registration">
+	<h1>Book Here... </h1>
+ <br>
+	<input type="email" name="email" id="email" placeholder="Enter Your Email" size="40"required><br><br>
+	<input type="password" name="pass" id="password" placeholder="Enter Your Password" size="40"required><br><br>
+	<input type="text" name="email" id="name" placeholder="Enter Your  Name" size="40"required><br><br>
+		<input type="text" name="email" id="state" placeholder="Enter Your State" size="40"required> <br><br>
+
+ <select name="state" id="countySel" size="1">
+<option value="" selected="selected">Select Country</option>
+</select>
+<br>
+<br>
+ <select name="countrya" id="stateSel" size="1">
+<option value="" selected="selected">Please select Country first</option>
+</select>
+<br>
+<br>
+<select name="district" id="districtSel" size="1">
+<option value="" selected="selected">Please select State first</option>
+</select><br>
+
+
+		<br><br>
+			<input type="text" name="email" id="city" placeholder="Enter Your City" size="40"required><br><br>
+		<input type="text" name="email" id="address" placeholder="Enter Your Address" size="40"required><br><br>
+
+
+
+
+	<button onclick="SubmitUser()">Submit </button>
+
+</div>
+
+
+</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase.js"></script>
+
+
+
+
+
+
+
+
+
+
+		<script src="book.js" ></script>
+
+
+
+
+
+		  			  <footer>
+
+		<hr class="my-0">
+		  <!-- Connect -->
+		  <div id="Contact">
+		    <div class="row text-center padding">
+		      <div class="col-12">
+		        <h2>Follow Us on</h2>
+						<hr>
+		      </div>
+		      <div class="col-12 social padding">
+		        <a href="https://www.facebook.com/KgeTechnologies/"><i class="fab fa-facebook-f"></i></a>
+		        <a href="https://twitter.com/kgetechnologies?lang=en"><i class="fab fa-twitter-square"></i></a>
+
+		        <a href="https://www.instagram.com/kgetechnologies/?hl=en"><i class="fab fa-instagram"></i></a>
+		        <a href="https://www.youtube.com/channel/UC1FU9-MRQaUuEUYAWtZOYVQ"><i class="fab fa-youtube"></i></a>
+		      </div>
+		    </div>
+		  </div>
+
+		        <div class="col-12">
+		          <hr class="light">
+							<br>
+		          <h5>&copy; www.EBike.com</h5>
+							<br>
+
+		        </div>
+		      </div>
+		    </div>
+		  </footer>
+
+
+
+
+  	 </body>
+</html>
